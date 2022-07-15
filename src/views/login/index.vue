@@ -1,15 +1,16 @@
 <template>
 	<div class="login-container">
+    <img :src="login_adide" style=" height: 120%; "/>
 		<div class="login-icon-group">
 			<div class="login-icon-group-title">
 				<img :src="logoMini" />
-				<div class="login-icon-group-title-text font25">{{ getThemeConfig.globalViceTitle }}</div>
+				<div class="login-icon-group-title-text font25">YokyAndKen</div>
 			</div>
 			<img :src="loginIconTwo" class="login-icon-group-icon" />
 		</div>
 		<div class="login-content">
 			<div class="login-content-main">
-				<h4 class="login-content-title ml15">{{ getThemeConfig.globalTitle }}后台模板</h4>
+				<h4 class="login-content-title ml15">yoky-and-ken HOME</h4>
 				<div v-if="!isScan">
 					<el-tabs v-model="tabsActiveName">
 						<el-tab-pane :label="$t('message.label.one1')" name="account">
@@ -35,6 +36,7 @@ import { toRefs, reactive, computed, defineComponent, onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useThemeConfig } from '/@/stores/themeConfig';
 import logoMini from '/@/assets/logo-mini.svg';
+import login_adide from '/@/assets/login_aside.png';
 import loginIconTwo from '/@/assets/login-icon-two.svg';
 import { NextLoading } from '/@/utils/loading';
 import Account from '/@/views/login/component/account.vue';
@@ -67,6 +69,7 @@ export default defineComponent({
 		});
 		return {
 			logoMini,
+      login_adide,
 			loginIconTwo,
 			getThemeConfig,
 			...toRefs(state),
@@ -82,6 +85,8 @@ export default defineComponent({
 	position: relative;
 	background: var(--el-color-white);
 	.login-icon-group {
+    display: flex;
+    justify-content: flex-end;
 		width: 100%;
 		height: 100%;
 		position: relative;
@@ -90,6 +95,7 @@ export default defineComponent({
 			top: 50px;
 			left: 80px;
 			display: flex;
+      justify-content: flex-end;
 			align-items: center;
 			img {
 				width: 30px;
